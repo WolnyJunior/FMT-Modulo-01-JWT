@@ -12,7 +12,7 @@ async function auth(req, res, next) {
 
     } catch (error) {
         return res.status(401).json({
-            message: 'Falha na Autenticação: Usuário, Senha ou Autorização inválida',
+            message: 'Falha na Autenticação: Autorização inválida',
             cause: error.message
         })
     }

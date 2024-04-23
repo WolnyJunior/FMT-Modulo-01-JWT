@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const Usuario = require("../models/Usuario");
+const { auth } = require('../middlewares/auth')
 
 const rotaUsuario = new Router()
 
@@ -25,6 +26,11 @@ rotaUsuario.post('/', async (req, res) => {
         console.log(error.message)
         res.status(500).json({ error: 'Não foi possível cadastrar aluno.' })
     }
+})
+
+rotaUsuario.get('/', auth , async(req, res)=>{
+    const usuarios = await Usuario.findAll()
+    res.json(usuarios)
 })
 
 module.exports = rotaUsuario
