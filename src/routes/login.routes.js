@@ -4,6 +4,7 @@ const { sign } = require("jsonwebtoken");
 
 const rotaLogin = new Router()
 
+//Rota de login para fazer a verificação JWT e liberação do token
 rotaLogin.post('/', async (req, res) => {
     try {
         const email = req.body.email

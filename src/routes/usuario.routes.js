@@ -53,7 +53,6 @@ rotaUsuario.put('/:id', auth, async (req, res) => {
         user.update(req.body)
 
         await user.save()
-
         res.json(user)
 
     } catch (error) {
